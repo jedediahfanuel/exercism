@@ -22,4 +22,10 @@ class Anagram
 
     res
   end
+
+  def self.find_2nd(word : String, candidates)
+    candidates
+      .reject { |candidate| word.downcase == candidate.downcase }
+      .select { |candidate| word.downcase.chars.sort == candidate.downcase.chars.sort }
+  end
 end
