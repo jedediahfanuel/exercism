@@ -8,4 +8,8 @@ class Acronym
       end
     end.join
   end
+
+  def self.abbreviate_2nd(s)
+    s.split(/[ .,\/#!$%\^&\*;:{}=\-_`~()]+/).map { |word| word[0].upcase } .join
+  end
 end
