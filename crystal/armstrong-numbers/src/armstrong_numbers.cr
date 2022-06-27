@@ -3,7 +3,7 @@ class ArmstrongNumbers
     arr = expected.digits
     len = arr.size
     
-    result = arr.map { |d| d ** len }.sum
+    result = arr.sum { |d| d ** len }
 
     expected == result ? true : false
   end
