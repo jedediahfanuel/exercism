@@ -1,10 +1,10 @@
 class ArmstrongNumbers
-  def self.armstrong_number?(n : Int32) : Bool?
-    arr = n.digits
+  def self.armstrong_number?(expected : Int32) : Bool?
+    arr = expected.digits
     len = arr.size
     
-    res = arr.map { |d| d ** len }.sum
+    result = arr.map { |d| d ** len }.sum
 
-    n == res ? true : false
+    expected == result ? true : false
   end
 end
