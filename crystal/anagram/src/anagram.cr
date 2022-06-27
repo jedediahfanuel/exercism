@@ -5,13 +5,8 @@ class Anagram
     x = str.chars.sort.join
 
     arr.each do |s|
-      if str.size != s.size
-        next
-      end
-      
-      if str == s.upcase
-        next
-      end
+      next if str.size != s.size
+      next if str == s.upcase
 
       y = s.upcase.chars.sort.join
 
