@@ -1,1 +1,12 @@
-# Please implement your solution to binary-search-tree in this file
+class Node
+  include Enumerable(T)
+  include Iterable(T)
+
+  property value : T
+  property left : Node(T)
+  property right : Node(T)
+
+  def initialize(@value : T)
+    
+  end
+end
