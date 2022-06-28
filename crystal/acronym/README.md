@@ -28,7 +28,3 @@ like Portable Network Graphics to its acronym (PNG).
 ### Based on
 
 Julien Vanier - https://github.com/monkbroc
-
-<hr>
-
-![Jeddi's Profile Views](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FJeddi212&countColor=%23fce775&style=flat-square)

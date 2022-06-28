@@ -69,7 +69,3 @@ $ exercism submit src/hello_world.cr
 ### Based on
 
 This is an exercise to introduce users to using Exercism - http://en.wikipedia.org/wiki/%22Hello,_world!%22_program
-
-<hr>
-
-![Jeddi's Profile Views](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FJeddi212&countColor=%23fce775&style=flat-square)
