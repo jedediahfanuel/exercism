@@ -74,7 +74,7 @@ describe "BinarySearchTree" do
   # 2. Deleting a node with one child
   # 3. Deleting a node with two children
   describe "#delete" do
-    pending "can remove the root node" do
+    it "can remove the root node" do
       tree = Node.new(5)
       tree.insert(2)
       tree.delete(5)
@@ -82,14 +82,14 @@ describe "BinarySearchTree" do
       tree.left.should be_nil
     end
 
-    pending "removes a node with no children" do
+    it "removes a node with no children" do
       tree = Node.new(5)
       tree.insert(2)
       tree.delete(2)
       tree.left.should be_nil
     end
 
-    pending "removes a node with one child" do
+    it "removes a node with one child" do
       tree = Node.new(5)
       tree.insert(3)
       tree.insert(2)
@@ -101,7 +101,7 @@ describe "BinarySearchTree" do
       end
     end
 
-    pending "removes a node with two children" do
+    it "removes a node with two children" do
       tree = Node.new(5)
       tree.insert(3)
       tree.insert(2)
@@ -114,7 +114,7 @@ describe "BinarySearchTree" do
       end
     end
 
-    pending "removes a left node with two child (complex)" do
+    it "removes a left node with two child (complex)" do
       tree = Node.new(10)
       tree.insert(5)
       tree.insert(2)
@@ -130,7 +130,7 @@ describe "BinarySearchTree" do
       end
     end
 
-    pending "removes a right node with two children (complex)" do
+    it "removes a right node with two children (complex)" do
       tree = Node.new(1)
       tree.insert(5)
       tree.insert(2)
