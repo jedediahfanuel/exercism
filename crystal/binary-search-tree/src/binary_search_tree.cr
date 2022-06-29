@@ -1,22 +1,9 @@
 class Node(T)
-  include Enumerable(T)
-  include Iterable(T)
-
   property value : T
   property left : Node(T)?
   property right : Node(T)?
 
   def initialize(@value : T) end
-
-  def each
-    TreeIterator.new(self).each do |v|
-      yield v
-    end
-  end
-
-  def each
-    TreeIterator.new(self)
-  end
 
   def insert(v)
     if v <= value
