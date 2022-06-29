@@ -14,9 +14,9 @@ class Bob
     end
   end
 
-  def self.question?(your_words : String) : Bool your_words.ends_with?("?") end
+  private def self.question?(your_words : String) : Bool your_words.ends_with?("?") end
 
-  def self.scream?(your_words : String) : Bool
+  private def self.scream?(your_words : String) : Bool
     alphabet = your_words.scan(/[a-zA-Z']+/)
     return false if alphabet.size < 1
 
@@ -27,5 +27,9 @@ class Bob
     end
 
     true
+  end
+
+  private def self.yelled?(msg)
+    msg == msg.upcase && msg != msg.downcase
   end
 end
