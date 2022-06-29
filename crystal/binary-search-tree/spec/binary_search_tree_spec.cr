@@ -40,14 +40,14 @@ describe "BinarySearchTree" do
   end
 
   describe "#search" do
-    pending "will return a node if a search if successful" do
+    it "will return a node if a search if successful" do
       tree = Node.new(5)
       tree.insert(1)
       node = tree.search(1).not_nil!
       node.value.should eq(1)
     end
 
-    pending "will return nil if a searched value is not found" do
+    it "will return nil if a searched value is not found" do
       tree = Node.new(5)
       tree.search(4).should be_nil
     end

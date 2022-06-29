@@ -21,4 +21,13 @@ class Node(T)
     end
   end
 
+  def search(v)
+    return self if value == v
+    return v <= value ? 
+    if node = left ; return node.search(v) end 
+    : if node = right ; return node.search(v) end
+
+    nil
+  end
+
 end
