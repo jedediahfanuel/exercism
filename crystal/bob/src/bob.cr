@@ -32,4 +32,21 @@ class Bob
   private def self.yelled?(msg)
     msg == msg.upcase && msg != msg.downcase
   end
+
+  # Another
+  def self.hey(s)
+    if s.blank?
+        return "Fine. Be that way!"
+    end
+    if /[A-Z]/ =~ s && /[a-z]/ !~ s
+        if /\?$/ =~ s
+            return "Calm down, I know what I'm doing!"
+        end
+        return "Whoa, chill out!"
+    end
+    if /\?$/ =~ s
+        return "Sure."
+    end
+    "Whatever."
+  end
 end
