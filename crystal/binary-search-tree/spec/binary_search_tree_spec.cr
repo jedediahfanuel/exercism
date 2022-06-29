@@ -8,7 +8,7 @@ describe "BinarySearchTree" do
   end
 
   describe "#insert" do
-    pending "inserts smaller values to the left" do
+    it "inserts smaller values to the left" do
       tree = Node.new(4)
       tree.insert(2)
 
@@ -18,7 +18,7 @@ describe "BinarySearchTree" do
       tree.right.should be_nil
     end
 
-    pending "inserts equal values to the left" do
+    it "inserts equal values to the left" do
       tree = Node.new(4)
       tree.insert(4)
 
@@ -28,7 +28,7 @@ describe "BinarySearchTree" do
       tree.right.should be_nil
     end
 
-    pending "inserts greater values to the right" do
+    it "inserts greater values to the right" do
       tree = Node.new(4)
       tree.insert(5)
 
