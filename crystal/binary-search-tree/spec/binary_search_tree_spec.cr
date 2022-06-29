@@ -54,7 +54,7 @@ describe "BinarySearchTree" do
   end
 
   describe "#each" do
-    pending "traverses the tree in order" do
+    it "traverses the tree in order" do
       tree = Node.new(5)
       tree.insert(1)
       tree.insert(6)
@@ -153,7 +153,7 @@ describe "BinarySearchTree" do
   describe "crystal-lang specific" do
     # Make the Binary Search Tree Enumerable
     # See https://crystal-lang.org/api/0.20.3/Enumerable.html
-    pending "is an Enumerable" do
+    it "is an Enumerable" do
       tree = Node.new(1)
       tree.insert(5)
       tree.insert(2)
@@ -164,7 +164,7 @@ describe "BinarySearchTree" do
 
     # If no block is provided to the each method return an Iterator
     # See https://crystal-lang.org/api/0.20.3/Iterator.html
-    pending "will return an iterator if no block is provided" do
+    it "will return an iterator if no block is provided" do
       tree = Node.new(1)
       tree.insert(5)
       tree.insert(2)
@@ -176,7 +176,7 @@ describe "BinarySearchTree" do
 
     # Make the Binary Search Tree Iterable
     # See https://crystal-lang.org/api/0.20.3/Iterable.html
-    pending "is Iterable" do
+    it "is Iterable" do
       tree = Node.new(100)
       tree.insert(50)
       tree.insert(20)
