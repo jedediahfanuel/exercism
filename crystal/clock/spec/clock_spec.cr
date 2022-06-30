@@ -6,19 +6,19 @@ describe "Clock" do
     Clock.new(hour: 8, minute: 0).to_s.should eq("08:00")
   end
 
-  pending "past the hour" do
+  it "past the hour" do
     Clock.new(hour: 11, minute: 9).to_s.should eq("11:09")
   end
 
-  pending "midnight is zero hours" do
+  it "midnight is zero hours" do
     Clock.new(hour: 24, minute: 0).to_s.should eq("00:00")
   end
 
-  pending "hour rolls over" do
+  it "hour rolls over" do
     Clock.new(hour: 25, minute: 0).to_s.should eq("01:00")
   end
 
-  pending "hour rolls over continuously" do
+  it "hour rolls over continuously" do
     Clock.new(hour: 100, minute: 0).to_s.should eq("04:00")
   end
 
