@@ -58,27 +58,27 @@ describe "Clock" do
     Clock.new(hour: -91, minute: 0).to_s.should eq("05:00")
   end
 
-  pending "negative minutes" do
+  it "negative minutes" do
     Clock.new(hour: 1, minute: -40).to_s.should eq("00:20")
   end
 
-  pending "negative minutes roll over" do
+  it "negative minutes roll over" do
     Clock.new(hour: 1, minute: -160).to_s.should eq("22:20")
   end
 
-  pending "negative minutes roll over continuously" do
+  it "negative minutes roll over continuously" do
     Clock.new(hour: 1, minute: -4820).to_s.should eq("16:40")
   end
 
-  pending "negative sixty minutes is previous hour" do
+  it "negative sixty minutes is previous hour" do
     Clock.new(hour: 2, minute: -60).to_s.should eq("01:00")
   end
 
-  pending "negative hour and minutes both roll over" do
+  it "negative hour and minutes both roll over" do
     Clock.new(hour: -25, minute: -160).to_s.should eq("20:20")
   end
 
-  pending "negative hour and minutes both roll over continuously" do
+  it "negative hour and minutes both roll over continuously" do
     Clock.new(hour: -121, minute: -5810).to_s.should eq("22:10")
   end
 

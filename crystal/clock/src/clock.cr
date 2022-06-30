@@ -34,7 +34,7 @@ class Clock
 end
 
 puts "Clock check"
-c = Clock.new -1, 0
+c = Clock.new 1, -40
 
 puts "Hour   : #{c.hour}"
 puts "Minute : #{c.minute}"
