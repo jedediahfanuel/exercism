@@ -33,21 +33,8 @@ class Clock
   end
 end
 
-c = Clock.new 10, 10
-puts c.hour
-puts c.minute
-
-d = Clock.new 2, 2
-puts d.hour
-puts d.minute
-
-puts typeof(c - Clock.new(1, 3))
-
-puts (c - d).to_s
-puts
-
 puts "Clock check"
-c = Clock.new 72, 8640
+c = Clock.new -1, 0
 
 puts "Hour   : #{c.hour}"
 puts "Minute : #{c.minute}"

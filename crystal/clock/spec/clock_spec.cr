@@ -46,15 +46,15 @@ describe "Clock" do
     Clock.new(hour: 72, minute: 8640).to_s.should eq("00:00")
   end
 
-  pending "negative hour" do
+  it "negative hour" do
     Clock.new(hour: -1, minute: 15).to_s.should eq("23:15")
   end
 
-  pending "negative hour rolls over" do
+  it "negative hour rolls over" do
     Clock.new(hour: -25, minute: 0).to_s.should eq("23:00")
   end
 
-  pending "negative hour rolls over continuously" do
+  it "negative hour rolls over continuously" do
     Clock.new(hour: -91, minute: 0).to_s.should eq("05:00")
   end
 
