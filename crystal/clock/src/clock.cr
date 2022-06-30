@@ -3,8 +3,7 @@ class Clock
   property minute : Int32
 
   def initialize(@hour = 0, @minute = 0) 
-    @minute = minutes_check @minute
-    @hour   = hours_check @hour
+    clock_check
   end
 
   def to_s : String
@@ -15,12 +14,9 @@ class Clock
     end
   end
 
-  def hours_check(h : Int32)
-    @hour %= 24
-  end
-
-  def minutes_check(m : Int32)
-    @hour += @minute // 60
+  private def clock_check
+    @hour   += @minute // 60
+    @hour   %= 24
     @minute %= 60
   end
 
