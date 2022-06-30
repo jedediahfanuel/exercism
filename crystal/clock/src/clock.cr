@@ -3,7 +3,8 @@ class Clock
   property minute : Int32
 
   def initialize(@hour = 0, @minute = 0) 
-    @hour = hours_check @hour
+    @minute = minutes_check @minute
+    @hour   = hours_check @hour
   end
 
   def to_s : String
@@ -16,6 +17,11 @@ class Clock
 
   def hours_check(h : Int32) : Int32
     h % 24
+  end
+
+  def minutes_check(m : Int32) : Int32
+    self.hour += m // 60
+    m % 60
   end
 
   def + (c : Clock) : Clock
@@ -42,8 +48,10 @@ puts d.minute
 puts typeof(c - Clock.new(1, 3))
 
 puts (c - d).to_s
-
-puts
 puts
 
-puts Clock.new(24, 0).hour, Clock.new(24, 1).minute
+puts "Clock check"
+c = Clock.new 72, 8640
+
+puts "Hour   : #{c.hour}"
+puts "Minute : #{c.minute}"
