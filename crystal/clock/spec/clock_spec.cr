@@ -22,27 +22,27 @@ describe "Clock" do
     Clock.new(hour: 100, minute: 0).to_s.should eq("04:00")
   end
 
-  pending "sixty minutes is next hour" do
+  it "sixty minutes is next hour" do
     Clock.new(hour: 1, minute: 60).to_s.should eq("02:00")
   end
 
-  pending "minutes roll over" do
+  it "minutes roll over" do
     Clock.new(hour: 0, minute: 160).to_s.should eq("02:40")
   end
 
-  pending "minutes roll over continuously" do
+  it "minutes roll over continuously" do
     Clock.new(hour: 0, minute: 1723).to_s.should eq("04:43")
   end
 
-  pending "hour and minutes roll over" do
+  it "hour and minutes roll over" do
     Clock.new(hour: 25, minute: 160).to_s.should eq("03:40")
   end
 
-  pending "hour and minutes roll over continuously" do
+  it "hour and minutes roll over continuously" do
     Clock.new(hour: 201, minute: 3001).to_s.should eq("11:01")
   end
 
-  pending "hour and minutes roll over to exactly midnight" do
+  it "hour and minutes roll over to exactly midnight" do
     Clock.new(hour: 72, minute: 8640).to_s.should eq("00:00")
   end
 
