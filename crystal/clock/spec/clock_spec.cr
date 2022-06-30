@@ -82,42 +82,42 @@ describe "Clock" do
     Clock.new(hour: -121, minute: -5810).to_s.should eq("22:10")
   end
 
-  pending "add minutes" do
+  it "add minutes" do
     clock = Clock.new(hour: 10, minute: 0)
     (clock + Clock.new(minute: 3)).to_s.should eq("10:03")
   end
 
-  pending "add no minutes" do
+  it "add no minutes" do
     clock = Clock.new(hour: 6, minute: 41)
     (clock + Clock.new(minute: 0)).to_s.should eq("06:41")
   end
 
-  pending "add to next hour" do
+  it "add to next hour" do
     clock = Clock.new(hour: 0, minute: 45)
     (clock + Clock.new(minute: 40)).to_s.should eq("01:25")
   end
 
-  pending "add more than one hour" do
+  it "add more than one hour" do
     clock = Clock.new(hour: 10, minute: 0)
     (clock + Clock.new(minute: 61)).to_s.should eq("11:01")
   end
 
-  pending "add more than two hours with carry" do
+  it "add more than two hours with carry" do
     clock = Clock.new(hour: 0, minute: 45)
     (clock + Clock.new(minute: 160)).to_s.should eq("03:25")
   end
 
-  pending "add across midnight" do
+  it "add across midnight" do
     clock = Clock.new(hour: 23, minute: 59)
     (clock + Clock.new(minute: 2)).to_s.should eq("00:01")
   end
 
-  pending "add more than one day (1500 min = 25 hrs)" do
+  it "add more than one day (1500 min = 25 hrs)" do
     clock = Clock.new(hour: 5, minute: 32)
     (clock + Clock.new(minute: 1500)).to_s.should eq("06:32")
   end
 
-  pending "add more than two days" do
+  it "add more than two days" do
     clock = Clock.new(hour: 1, minute: 1)
     (clock + Clock.new(minute: 3500)).to_s.should eq("11:21")
   end
