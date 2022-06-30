@@ -161,114 +161,100 @@ describe "Clock" do
     clock = Clock.new(hour: 2, minute: 20)
     (clock - Clock.new(minute: 3000)).to_s.should eq("00:20")
   end
-
+  
   it "clocks with same time" do
     clock1 = Clock.new(hour: 15, minute: 37)
     clock2 = Clock.new(hour: 15, minute: 37)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks a minute apart" do
     clock1 = Clock.new(hour: 15, minute: 36)
     clock2 = Clock.new(hour: 15, minute: 37)
-    clock1.minute.should_not eq(clock2.minute)
+    clock1.should_not eq(clock2)
   end
 
   it "clocks an hour apart" do
     clock1 = Clock.new(hour: 14, minute: 37)
     clock2 = Clock.new(hour: 15, minute: 37)
-    clock1.hour.should_not eq(clock2.hour)
+    clock1.should_not eq(clock2)
   end
 
   it "clocks with hour overflow" do
     clock1 = Clock.new(hour: 10, minute: 37)
     clock2 = Clock.new(hour: 34, minute: 37)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with hour overflow by several days" do
     clock1 = Clock.new(hour: 3, minute: 11)
     clock2 = Clock.new(hour: 99, minute: 11)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative hour" do
     clock1 = Clock.new(hour: 22, minute: 40)
     clock2 = Clock.new(hour: -2, minute: 40)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative hour that wraps" do
     clock1 = Clock.new(hour: 17, minute: 3)
     clock2 = Clock.new(hour: -31, minute: 3)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative hour that wraps multiple times" do
     clock1 = Clock.new(hour: 13, minute: 49)
     clock2 = Clock.new(hour: -83, minute: 49)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with minute overflow" do
     clock1 = Clock.new(hour: 0, minute: 1)
     clock2 = Clock.new(hour: 0, minute: 1441)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with minute overflow by several days" do
     clock1 = Clock.new(hour: 2, minute: 2)
     clock2 = Clock.new(hour: 2, minute: 4322)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative minute" do
     clock1 = Clock.new(hour: 2, minute: 40)
     clock2 = Clock.new(hour: 3, minute: -20)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative minute that wraps" do
     clock1 = Clock.new(hour: 4, minute: 10)
     clock2 = Clock.new(hour: 5, minute: -1490)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative minute that wraps multiple times" do
     clock1 = Clock.new(hour: 6, minute: 15)
     clock2 = Clock.new(hour: 6, minute: -4305)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative hours and minutes" do
     clock1 = Clock.new(hour: 7, minute: 32)
     clock2 = Clock.new(hour: -12, minute: -268)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "clocks with negative hours and minutes that wrap" do
     clock1 = Clock.new(hour: 18, minute: 7)
     clock2 = Clock.new(hour: -54, minute: -11513)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 
   it "full clock and zeroed clock" do
     clock1 = Clock.new(hour: 24, minute: 0)
     clock2 = Clock.new(hour: 0, minute: 0)
-    clock1.hour.should eq(clock2.hour)
-    clock1.minute.should eq(clock2.minute)
+    clock1.should eq(clock2)
   end
 end
