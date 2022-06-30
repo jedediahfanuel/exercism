@@ -1,6 +1,5 @@
 class Clock
-  property hour : Int32
-  property minute : Int32
+  property hour, minute : Int32
 
   def initialize(@hour = 0, @minute = 0) 
     clock_check
@@ -20,21 +19,21 @@ class Clock
     @minute %= 60
   end
 
-  def + (c : Clock) : Clock
-    h = @hour   += c.hour
-    m = @minute += c.minute
-    Clock.new(h, m)
+  def + (c : Clock) : self
+    @hour   += c.hour
+    @minute += c.minute
+    clock_check
+    self
   end
   
-  def - (c : Clock) : Clock
-    h = @hour   -= c.hour
-    m = @minute -= c.minute
-    Clock.new(h, m)
+  def - (c : Clock) : self
+    @hour   -= c.hour
+    @minute -= c.minute
+    clock_check
+    self
+  end
+
+  def == (c : Clock)
+    @minute == c.minute && @hour == c.hour
   end
 end
-
-puts "Clock check"
-c = Clock.new 1, -40
-
-puts "Hour   : #{c.hour}"
-puts "Minute : #{c.minute}"
