@@ -6,7 +6,7 @@ describe "Clock" do
     Clock.new(hour: 8, minute: 0).to_s.should eq("08:00")
   end
 
-  pending "past the hour" do
+  it "past the hour" do
     Clock.new(hour: 11, minute: 9).to_s.should eq("11:09")
   end
 
