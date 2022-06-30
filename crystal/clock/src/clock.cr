@@ -15,24 +15,24 @@ class Clock
     end
   end
 
-  def hours_check(h : Int32) : Int32
-    h % 24
+  def hours_check(h : Int32)
+    @hour %= 24
   end
 
-  def minutes_check(m : Int32) : Int32
-    self.hour += m // 60
-    m % 60
+  def minutes_check(m : Int32)
+    @hour += @minute // 60
+    @minute %= 60
   end
 
   def + (c : Clock) : Clock
-    h = self.hour += c.hour
-    m = self.minute += c.minute
+    h = @hour   += c.hour
+    m = @minute += c.minute
     Clock.new(h, m)
   end
   
   def - (c : Clock) : Clock
-    h = self.hour -= c.hour
-    m = self.minute -= c.minute
+    h = @hour   -= c.hour
+    m = @minute -= c.minute
     Clock.new(h, m)
   end
 end
