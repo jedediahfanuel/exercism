@@ -3,7 +3,7 @@ class Clock
   property minute : Int32
 
   def initialize(@hour = 0, @minute = 0) 
-
+    @hour = hours_check @hour
   end
 
   def to_s : String
@@ -14,12 +14,20 @@ class Clock
     end
   end
 
+  def hours_check(h : Int32) : Int32
+    h % 24
+  end
+
   def + (c : Clock) : Clock
-    Clock.new(self.hour += c.hour, self.minute += c.minute)
+    h = self.hour += c.hour
+    m = self.minute += c.minute
+    Clock.new(h, m)
   end
   
   def - (c : Clock) : Clock
-    Clock.new(self.hour -= c.hour, self.minute -= c.minute)
+    h = self.hour -= c.hour
+    m = self.minute -= c.minute
+    Clock.new(h, m)
   end
 end
 
@@ -34,3 +42,8 @@ puts d.minute
 puts typeof(c - Clock.new(1, 3))
 
 puts (c - d).to_s
+
+puts
+puts
+
+puts Clock.new(24, 0).hour, Clock.new(24, 1).minute
