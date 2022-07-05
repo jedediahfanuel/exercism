@@ -6,11 +6,11 @@ describe "DifferenceOfSquares" do
     Squares.square_of_sum(1).should eq(1)
   end
 
-  pending "calculates square of sum 5 is 225" do
+  it "calculates square of sum 5 is 225" do
     Squares.square_of_sum(5).should eq(225)
   end
 
-  pending "calculates square of sum 100 is 25502500" do
+  it "calculates square of sum 100 is 25502500" do
     Squares.square_of_sum(100).should eq(25502500)
   end
 
