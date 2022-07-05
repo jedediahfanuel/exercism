@@ -8,5 +8,7 @@ class Hamming
       count += 1 if left[i] != right[i]
     end
     count
+
+    # a.size.times.count { |i| a[i] != b[i] }
   end
 end
