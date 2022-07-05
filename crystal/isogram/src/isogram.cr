@@ -4,5 +4,6 @@ class Isogram
     return true if arr.size < 1
 
     arr.size == Set.new(arr).size ? true : false
+    # arr.size == arr.uniq.size ? true : false
   end
 end
