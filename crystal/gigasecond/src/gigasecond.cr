@@ -1,1 +1,5 @@
-# Please implement your solution to gigasecond in this file
+class Gigasecond
+  def self.from(t : Time) : Time
+    t.shift 10**9, 0
+  end
+end
