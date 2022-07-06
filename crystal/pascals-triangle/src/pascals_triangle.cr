@@ -1,7 +1,7 @@
 class PascalsTriangle
   def self.rows(r : Int32) : Array(Array(Int32))
     result = [] of Array(Int32)
-    
+
     r.times do |i|
       row = Array(Int32).new(i+1, 0)
 
@@ -19,17 +19,3 @@ class PascalsTriangle
     result
   end
 end
-
-PascalsTriangle.rows(3).each do |x|
-  puts x
-end
-# ber = [] of Array(Int32)
-# ber.push [1]
-
-# (1..3).each do |i|
-#   rrr = Array.new(i+1, 0)
-#   rrr[i] = i + 10
-#   ber << rrr
-# end
-
-# puts ber
