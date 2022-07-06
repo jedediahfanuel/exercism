@@ -1,7 +1,7 @@
 class MatchingBrackets
   def self.valid?(brackets : String) : Bool
     arr = Array(Char).new
-    
+
     brackets.each_char do |b|
       case b
       when '[', '{', '('
@@ -21,6 +21,6 @@ class MatchingBrackets
       end
     end
 
-    arr.size < 1 ? true : false
+    arr.empty?
   end
 end
