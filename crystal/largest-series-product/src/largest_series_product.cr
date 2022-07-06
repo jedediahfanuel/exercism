@@ -1,5 +1,3 @@
-require "big"
-
 class Series
   def initialize(@value : String)
     @value = @value.strip
@@ -12,7 +10,7 @@ class Series
     return 1 if digit == 0
 
     largest = 0
-    @value.to_big_i.digits.each_cons(digit) do |series|
+    @value.chars.each_cons(digit) do |series|
       p = series.product(&.to_u64)
       largest = p > largest ? p : largest
     end
