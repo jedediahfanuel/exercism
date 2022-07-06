@@ -1,1 +1,5 @@
-# Please implement your solution to leap in this file
+class Year
+  def self.leap?(year : Int32) : Bool
+    true
+  end
+end
