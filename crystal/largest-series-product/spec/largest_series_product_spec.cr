@@ -51,11 +51,11 @@ describe "Series" do
       expect_raises(ArgumentError) { Series.new("123").largest_product(4) }
     end
 
-    pending "reports 1 for empty string and empty product (0 span)" do
+    it "reports 1 for empty string and empty product (0 span)" do
       Series.new("").largest_product(0).should eq 1
     end
 
-    pending "reports 1 for nonempty string and empty product (0 span)" do
+    it "reports 1 for nonempty string and empty product (0 span)" do
       Series.new("123").largest_product(0).should eq 1
     end
 
