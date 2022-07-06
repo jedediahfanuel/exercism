@@ -20,5 +20,6 @@ class Series
     largest
 
     # @value.each_char.cons(digits).max_of(&.product(&.to_u64))
+    # @value.each_cons(digit).map(&.product 1_i64).max
   end
 end
