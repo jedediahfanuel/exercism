@@ -13,7 +13,8 @@ class Series
 
     largest = 0
     @value.to_big_i.digits.each_cons(digit) do |series|
-      largest = series.product > largest ? series.product : largest
+      p = series.product(&.to_u64)
+      largest = p > largest ? p : largest
     end
 
     largest
