@@ -3,7 +3,7 @@ require "../src/*"
 
 describe "Series" do
   describe "#largest_product" do
-    it "can find the largest product of 2 with numbers in order" do
+    pending "can find the largest product of 2 with numbers in order" do
       Series.new("0123456789").largest_product(2).should eq 72
     end
 
@@ -47,7 +47,7 @@ describe "Series" do
       Series.new("99099").largest_product(3).should eq 0
     end
 
-    pending "rejects span longer than string length" do
+    it "rejects span longer than string length" do
       expect_raises(ArgumentError) { Series.new("123").largest_product(4) }
     end
 
@@ -63,7 +63,7 @@ describe "Series" do
       expect_raises(ArgumentError) { Series.new("").largest_product(1) }
     end
 
-    pending "rejects invalid character in digits" do
+    it "rejects invalid character in digits" do
       expect_raises(ArgumentError) { Series.new("1234a5").largest_product(2).should eq -1 }
     end
 
