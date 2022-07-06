@@ -59,7 +59,7 @@ describe "Series" do
       Series.new("123").largest_product(0).should eq 1
     end
 
-    pending "rejects empty string and nonzero span" do
+    it "rejects empty string and nonzero span" do
       expect_raises(ArgumentError) { Series.new("").largest_product(1) }
     end
 
@@ -67,7 +67,7 @@ describe "Series" do
       expect_raises(ArgumentError) { Series.new("1234a5").largest_product(2).should eq -1 }
     end
 
-    pending "rejects negative span" do
+    it "rejects negative span" do
       expect_raises(ArgumentError) { Series.new("12345").largest_product(-1) }
     end
   end
