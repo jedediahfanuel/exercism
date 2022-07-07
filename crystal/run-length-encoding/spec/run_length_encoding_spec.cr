@@ -6,23 +6,23 @@ describe "RunLengthEncoding" do
     RunLengthEncoding.encode("").should eq("")
   end
 
-  pending "encode single characters only are encoded without count" do
+  it "encode single characters only are encoded without count" do
     RunLengthEncoding.encode("XYZ").should eq("XYZ")
   end
 
-  pending "encode string with no single characters" do
+  it "encode string with no single characters" do
     RunLengthEncoding.encode("AABBBCCCC").should eq("2A3B4C")
   end
 
-  pending "encode single characters mixed with repeated characters" do
+  it "encode single characters mixed with repeated characters" do
     RunLengthEncoding.encode("WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB").should eq("12WB12W3B24WB")
   end
 
-  pending "encode multiple whitespace mixed in string" do
+  it "encode multiple whitespace mixed in string" do
     RunLengthEncoding.encode("  hsqq qww  ").should eq("2 hs2q q2w2 ")
   end
 
-  pending "encode lowercase characters" do
+  it "encode lowercase characters" do
     RunLengthEncoding.encode("aabbbcccc").should eq("2a3b4c")
   end
 
