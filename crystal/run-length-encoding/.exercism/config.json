@@ -1,0 +1,25 @@
+{
+  "blurb": "Implement run-length encoding and decoding.",
+  "authors": [
+    "bmulvihill"
+  ],
+  "contributors": [
+    "amscotti",
+    "chastell",
+    "issyl0",
+    "kytrinyx"
+  ],
+  "files": {
+    "solution": [
+      "src/run_length_encoding.cr"
+    ],
+    "test": [
+      "spec/run_length_encoding_spec.cr"
+    ],
+    "example": [
+      ".meta/src/example.cr"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Run-length_encoding"
+}
