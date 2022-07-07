@@ -40,12 +40,23 @@ class RunLengthEncoding
     count == 1 ? "#{char}" : "#{count}#{char}"
   end
 
-  ##################################################################33
+  ##################################################################
 
   def encode_2(plaintext)
     plaintext.gsub(/(.)\1+/) { |m| m.size.to_s + m.squeeze }
   end
+
   def decode_2(ciphertext)
     ciphertext.gsub(/(\d+)(.)/) { $2 * $1.to_i }
+  end
+
+  ##################################################################
+
+  def encode_3(s : String)
+    s.chars.chunks { |c| c }.map { |c, v| "#{v.size > 1 ? v.size : ""}#{c}" }.join
+  end
+
+  def decode_3(s : String)
+    s.gsub(/\d+./) { |m| m[-1].to_s * m[0..-2].to_i }
   end
 end
