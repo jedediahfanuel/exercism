@@ -18,20 +18,18 @@ class RunLengthEncoding
   def self.decode(s : String) : String
     counting, n, result = false, "", ""
 
-    i = 0
-    until i == s.size
-      if s[i].ascii_number?
-        n += s[i]
+    s.each_char do |c|
+      if c.ascii_number?
+        n += c
         counting = true
       elsif !counting
-        result += s[i]
+        result += c
       elsif counting
-        result += s[i].to_s * n.to_i
+        result += c.to_s * n.to_i
         n = ""
         counting = false
       end
 
-      i += 1
     end
 
     result
