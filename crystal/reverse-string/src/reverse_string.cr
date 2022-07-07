@@ -1,1 +1,5 @@
-# Please implement your solution to reverse-string in this file
+class ReverseString
+  def self.reverse(s : String) : String
+    s.reverse
+  end
+end
