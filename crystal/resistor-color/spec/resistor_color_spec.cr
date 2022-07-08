@@ -6,11 +6,11 @@ describe "ResistorColor" do
     ResistorColor.color_code("black").should eq(0)
   end
 
-  pending "White" do
+  it "White" do
     ResistorColor.color_code("white").should eq(9)
   end
 
-  pending "Orange" do
+  it "Orange" do
     ResistorColor.color_code("orange").should eq(3)
   end
 
