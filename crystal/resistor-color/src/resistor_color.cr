@@ -12,9 +12,9 @@ class ResistorColor
     "white"  => 9_i8
   }
   
-  # def colors : Array(String)
-  #   @colors.to_a
-  # end
+  def self.colors : Array(String)
+    @@colors.keys
+  end
   
   def self.color_code(c : String) : Int8
     @@colors[c.downcase]
