@@ -6,5 +6,9 @@ class RnaComplement
   def self.of_dna(c : String) : String
     c.upcase.chars.map { |x| @@code[x] }.join
   end
+  
+  def self.of_dna_two(dna : String)
+    dna.gsub({'A' => 'U', 'G' => 'C', 'C' => 'G', 'T' => 'A'})
+  end
 end
 
