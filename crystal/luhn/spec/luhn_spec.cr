@@ -6,7 +6,7 @@ describe "Luhn" do
     Luhn.valid?("1").should eq(false)
   end
 
-  pending "a single zero is invalid" do
+  it "a single zero is invalid" do
     Luhn.valid?("0").should eq(false)
   end
 
@@ -38,19 +38,19 @@ describe "Luhn" do
     Luhn.valid?("234 567 891 234").should eq(true)
   end
 
-  pending "valid strings with a non-digit added at the end become invalid" do
+  it "valid strings with a non-digit added at the end become invalid" do
     Luhn.valid?("059a").should eq(false)
   end
 
-  pending "valid strings with punctuation included become invalid" do
+  it "valid strings with punctuation included become invalid" do
     Luhn.valid?("055-444-285").should eq(false)
   end
 
-  pending "valid strings with symbols included become invalid" do
+  it "valid strings with symbols included become invalid" do
     Luhn.valid?("055# 444$ 285").should eq(false)
   end
 
-  pending "single zero with space is invalid" do
+  it "single zero with space is invalid" do
     Luhn.valid?(" 0").should eq(false)
   end
 
@@ -62,11 +62,11 @@ describe "Luhn" do
     Luhn.valid?("091").should eq(true)
   end
 
-  pending "using ascii value for non-doubled non-digit isn't allowed" do
+  it "using ascii value for non-doubled non-digit isn't allowed" do
     Luhn.valid?("055b 444 285").should eq(false)
   end
 
-  pending "using ascii value for doubled non-digit isn't allowed" do
+  it "using ascii value for doubled non-digit isn't allowed" do
     Luhn.valid?(":9").should eq(false)
   end
 end
