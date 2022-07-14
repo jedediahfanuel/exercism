@@ -2,15 +2,15 @@ require "spec"
 require "../src/*"
 
 describe "Triangle" do
-  pending "all sides are equal" do
+  it "all sides are equal" do
     Triangle.new({2, 2, 2}).equilateral?.should eq(true)
   end
 
-  pending "any side is unequal" do
+  it "any side is unequal" do
     Triangle.new({2, 3, 2}).equilateral?.should eq(false)
   end
 
-  pending "no sides are equal" do
+  it "no sides are equal" do
     Triangle.new({5, 4, 6}).equilateral?.should eq(false)
   end
 
@@ -20,7 +20,7 @@ describe "Triangle" do
     end
   end
 
-  pending "sides may be floats" do
+  it "sides may be floats" do
     Triangle.new({0.5, 0.5, 0.5}).equilateral?.should eq(true)
   end
 
