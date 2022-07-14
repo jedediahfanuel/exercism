@@ -24,4 +24,17 @@ class Triangle
   def scalene?
     @sides[0] != @sides[1] && @sides[1] != @sides[2]
   end
+  
+  def isosceles_two?
+      @sides.to_set.size >= 1 && !scalene?
+  end
+  
+  def scalene_two?
+      @sides.to_set.size == 3
+  end
+  
+  def inequality_two?
+      x = @sides.to_a.sort
+      x[0] + x[1] < x[2]
+  end
 end
