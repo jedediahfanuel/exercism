@@ -24,23 +24,23 @@ describe "Triangle" do
     Triangle.new({0.5, 0.5, 0.5}).equilateral?.should eq(true)
   end
 
-  pending "last two sides are equal" do
+  it "last two sides are equal" do
     Triangle.new({3, 4, 4}).isosceles?.should eq(true)
   end
 
-  pending "first two sides are equal" do
+  it "first two sides are equal" do
     Triangle.new({4, 4, 3}).isosceles?.should eq(true)
   end
 
-  pending "first and last sides are equal" do
+  it "first and last sides are equal" do
     Triangle.new({4, 3, 4}).isosceles?.should eq(true)
   end
 
-  pending "equilateral triangles are also isosceles" do
+  it "equilateral triangles are also isosceles" do
     Triangle.new({4, 4, 4}).isosceles?.should eq(true)
   end
 
-  pending "no sides are equal" do
+  it "no sides are equal" do
     Triangle.new({2, 3, 4}).isosceles?.should eq(false)
   end
 
@@ -62,7 +62,7 @@ describe "Triangle" do
     end
   end
 
-  pending "sides may be floats" do
+  it "sides may be floats" do
     Triangle.new({0.5, 0.4, 0.5}).isosceles?.should eq(true)
   end
 

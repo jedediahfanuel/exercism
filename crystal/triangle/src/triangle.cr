@@ -16,4 +16,8 @@ class Triangle
   def equilateral? : Bool
     @sides[0] == @sides[1] && @sides[1] == @sides[2]
   end
+  
+  def isosceles?
+    @sides.tally.size < 3
+  end
 end
