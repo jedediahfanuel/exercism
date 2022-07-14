@@ -2,7 +2,7 @@ require "spec"
 require "../src/*"
 
 describe "Triangle" do
-  it "all sides are equal" do
+  pending "all sides are equal" do
     Triangle.new({2, 2, 2}).equilateral?.should eq(true)
   end
 
@@ -14,7 +14,7 @@ describe "Triangle" do
     Triangle.new({5, 4, 6}).equilateral?.should eq(false)
   end
 
-  pending "all zero sides is not a triangle" do
+  it "all zero sides is not a triangle" do
     expect_raises(ArgumentError) do
       Triangle.new({0, 0, 0})
     end
@@ -44,19 +44,19 @@ describe "Triangle" do
     Triangle.new({2, 3, 4}).isosceles?.should eq(false)
   end
 
-  pending "first triangle inequality violation" do
+  it "first triangle inequality violation" do
     expect_raises(ArgumentError) do
       Triangle.new({1, 1, 3})
     end
   end
 
-  pending "second triangle inequality violation" do
+  it "second triangle inequality violation" do
     expect_raises(ArgumentError) do
       Triangle.new({1, 3, 1})
     end
   end
 
-  pending "third triangle inequality violation" do
+  it "third triangle inequality violation" do
     expect_raises(ArgumentError) do
       Triangle.new({3, 1, 1})
     end
@@ -78,7 +78,7 @@ describe "Triangle" do
     Triangle.new({4, 4, 3}).scalene?.should eq(false)
   end
 
-  pending "may not violate triangle inequality" do
+  it "may not violate triangle inequality" do
     expect_raises(ArgumentError) do
       Triangle.new({7, 3, 2})
     end
