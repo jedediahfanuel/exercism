@@ -66,15 +66,15 @@ describe "Triangle" do
     Triangle.new({0.5, 0.4, 0.5}).isosceles?.should eq(true)
   end
 
-  pending "no sides are equal" do
+  it "no sides are equal" do
     Triangle.new({5, 4, 6}).scalene?.should eq(true)
   end
 
-  pending "all sides are equal" do
+  it "all sides are equal" do
     Triangle.new({4, 4, 4}).scalene?.should eq(false)
   end
 
-  pending "two sides are equal" do
+  it "two sides are equal" do
     Triangle.new({4, 4, 3}).scalene?.should eq(false)
   end
 
@@ -84,7 +84,7 @@ describe "Triangle" do
     end
   end
 
-  pending "sides may be floats" do
+  it "sides may be floats" do
     Triangle.new({0.5, 0.4, 0.6}).scalene?.should eq(true)
   end
 end

@@ -20,4 +20,8 @@ class Triangle
   def isosceles?
     @sides.tally.size < 3
   end
+  
+  def scalene?
+    @sides[0] != @sides[1] && @sides[1] != @sides[2]
+  end
 end
