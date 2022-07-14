@@ -1,22 +1,15 @@
 class Array
-  def keep(&block : T -> Bool)
-    ary = [] of T
-    
-    self.each do |x|
-      ary << x if yield x
-    end
-    
-    ary
-  end
+  @@token : Hash(String, String) = { "keep" => "if", "discard" => "unless" }
   
-  def discard(&block : T -> Bool)
-    ary = [] of T
-    
-    self.each do |x|
-      ary << x unless yield x
+  {% for name in %w{keep discard} %}
+    def {{name.id}}(&block : T -> Bool)
+      self.map do |x|
+        case @@token["{{name.id}}"]
+        when "if" then x if yield x
+        else           x unless yield x
+        end
+      end.compact
     end
-    
-    ary
-  end
+  {% end %}
 end
 
