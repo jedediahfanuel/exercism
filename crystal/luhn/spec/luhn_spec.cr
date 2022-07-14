@@ -10,31 +10,31 @@ describe "Luhn" do
     Luhn.valid?("0").should eq(false)
   end
 
-  pending "a simple valid SIN that remains valid if reversed" do
+  it "a simple valid SIN that remains valid if reversed" do
     Luhn.valid?("059").should eq(true)
   end
 
-  pending "a simple valid SIN that becomes invalid if reversed" do
+  it "a simple valid SIN that becomes invalid if reversed" do
     Luhn.valid?("59").should eq(true)
   end
 
-  pending "a valid Canadian SIN" do
+  it "a valid Canadian SIN" do
     Luhn.valid?("055 444 285").should eq(true)
   end
 
-  pending "invalid Canadian SIN" do
+  it "invalid Canadian SIN" do
     Luhn.valid?("055 444 286").should eq(false)
   end
 
-  pending "invalid credit card" do
+  it "invalid credit card" do
     Luhn.valid?("8273 1232 7352 0569").should eq(false)
   end
 
-  pending "valid number with an even number of digits" do
+  it "valid number with an even number of digits" do
     Luhn.valid?("095 245 88").should eq(true)
   end
 
-  pending "valid number with an odd number of spaces" do
+  it "valid number with an odd number of spaces" do
     Luhn.valid?("234 567 891 234").should eq(true)
   end
 
@@ -54,11 +54,11 @@ describe "Luhn" do
     Luhn.valid?(" 0").should eq(false)
   end
 
-  pending "more than a single zero is valid" do
+  it "more than a single zero is valid" do
     Luhn.valid?("0000 0").should eq(true)
   end
 
-  pending "input digit 9 is correctly converted to output digit 9" do
+  it "input digit 9 is correctly converted to output digit 9" do
     Luhn.valid?("091").should eq(true)
   end
 
