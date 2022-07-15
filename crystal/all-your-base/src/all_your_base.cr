@@ -20,11 +20,10 @@ class AllYourBase
     res = [] of Int32
 
     while ten_base_num >= b
-      res << ten_base_num % b
+      res.unshift ten_base_num % b
       ten_base_num //= b
     end
 
-    res << ten_base_num % b
-    res.reverse
+    res.unshift ten_base_num % b
   end
 end
