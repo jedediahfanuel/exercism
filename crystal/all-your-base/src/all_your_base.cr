@@ -1,8 +1,6 @@
 class AllYourBase
   def self.rebase(i : Int32, seq : Array(Int32), o : Int32) : Array(Int32)
     raise ArgumentError.new if i < 2 || o < 2
-    return [0] unless seq.any?
-    
     to_output_base( to_base_ten( seq , i ) , o )
   end
   
@@ -19,12 +17,12 @@ class AllYourBase
   private def self.to_output_base(ten_base_num : Int32, b : Int32) : Array(Int32)
     res = [] of Int32
 
-    while ten_base_num >= b
+    while ten_base_num > 0
       res.unshift ten_base_num % b
       ten_base_num //= b
     end
 
-    res.unshift ten_base_num % b
+    res.empty? ? [0] : res
   end
   
   def self.rebase_two(base, digits, new_base)
@@ -40,6 +38,6 @@ class AllYourBase
     end
  
     result.empty? ? [0] : result
-  end  
+  end
 end
 
