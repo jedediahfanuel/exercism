@@ -26,4 +26,20 @@ class AllYourBase
 
     res.unshift ten_base_num % b
   end
+  
+  def self.rebase_two(base, digits, new_base)
+    raise ArgumentError.new if base < 2 || new_base < 2
+    num = digits.reduce(0) do |acc, d|
+      raise ArgumentError.new if d < 0 || d >= base
+      acc*base + d
+    end
+    result = [] of Int32
+    while num > 0
+      result.unshift num % new_base
+      num //= new_base
+    end
+ 
+    result.empty? ? [0] : result
+  end  
 end
+
