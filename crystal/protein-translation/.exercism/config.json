@@ -1,0 +1,18 @@
+{
+  "blurb": "Translate RNA sequences into proteins.",
+  "authors": [
+    "amscotti"
+  ],
+  "files": {
+    "solution": [
+      "src/protein_translation.cr"
+    ],
+    "test": [
+      "spec/protein_translation_spec.cr"
+    ],
+    "example": [
+      ".meta/src/example.cr"
+    ]
+  },
+  "source": "Tyler Long"
+}
