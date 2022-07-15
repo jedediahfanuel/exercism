@@ -6,25 +6,20 @@ class AllYourBase
   
   private def self.to_base_ten(seq : Array(Int32), b : Int32) : Int32
     seq.reverse.map_with_index do |d, i|  
-      if d < 0 || d >= b
-        raise ArgumentError.new "Invalid input digit."
-      end
-      
+      raise ArgumentError.new if d < 0 || d >= b
       d * (b ** i)
     end.sum
   end
   
   private def self.to_output_base(ten_base_num : Int32, b : Int32) : Array(Int32)
     res = [] of Int32
-
     while ten_base_num > 0
       res.unshift ten_base_num % b
       ten_base_num //= b
     end
-
     res.empty? ? [0] : res
   end
-  
+    
   def self.rebase_two(base, digits, new_base)
     raise ArgumentError.new if base < 2 || new_base < 2
     num = digits.reduce(0) do |acc, d|
