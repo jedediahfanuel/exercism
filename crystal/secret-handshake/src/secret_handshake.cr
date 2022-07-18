@@ -16,3 +16,20 @@ class SecretHandshake
   end
 end
 
+module SecHand
+  WINK         =     0b1
+  DOUBLE_BLINK =    0b10
+  CLOSE_EYES   =   0b100
+  JUMP         =  0b1000
+  REVERSE      = 0b10000
+  def self.commands_two(input)
+    handshake = [] of String
+    handshake << "wink" if input.bits_set?(WINK)
+    handshake << "double blink" if input.bits_set?(DOUBLE_BLINK)
+    handshake << "close your eyes" if input.bits_set?(CLOSE_EYES)
+    handshake << "jump" if input.bits_set?(JUMP)
+    handshake.reverse! if input.bits_set?(REVERSE)
+    handshake
+  end
+end
+
