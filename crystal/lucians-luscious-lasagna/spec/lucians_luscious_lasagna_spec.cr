@@ -23,6 +23,6 @@ describe "LuciansLusciousLasagna" do
   end
   
   it "elapsed time in minutes for multiple layer" do
-    LuciansLusciousLasagna.preparation_time_in_minutes(4, 8).should eq(16)
+    LuciansLusciousLasagna.elapsed_time_in_minutes(4, 8).should eq(16)
   end
 end

@@ -13,7 +13,7 @@ class LuciansLusciousLasagna
     number_of_layers * 2
   end
   
-  def self.elapsed_time_in_minutes(number_of_layers: Int32, actual_minutes_in_oven: Int32) : Int32
+  def self.elapsed_time_in_minutes(number_of_layers : Int32, actual_minutes_in_oven : Int32) : Int32
     preparation_time_in_minutes(number_of_layers) + actual_minutes_in_oven
   end
 end
