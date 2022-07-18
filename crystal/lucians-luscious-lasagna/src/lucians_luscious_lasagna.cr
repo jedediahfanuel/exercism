@@ -7,4 +7,9 @@ class LuciansLusciousLasagna
   def self.remaining_minutes_in_oven(actual_minutes_in_oven : Int32) : Int32
     40 - actual_minutes_in_oven
   end
+  
+  def self.preparation_time_in_minutes(number_of_layers : Int32) : Int32
+    # Each layer of lasagna assumed to be 2 minutes preparation time
+    number_of_layers * 2
+  end
 end
