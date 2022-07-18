@@ -19,4 +19,16 @@ class AssemblyLine
   def self.working_items_per_minute(speed : UInt8) : UInt32
     production_rate_per_hour(speed).to_u32 // 60
   end
+  
+  ######
+  
+  def self.production_rate_per_hour_two(speed : UInt8) :  Float64
+    (speed.to_f64 * 221) * case speed
+      when 0     then 0.0
+      when 1..4  then 1.0
+      when 5..8  then 0.9
+      when 9..10 then 0.77
+      else raise ArgumentError.new "Unknown Speed Value"
+    end
+  end
 end
