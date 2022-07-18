@@ -7,7 +7,7 @@
 // 9 and 10 : 77% success rate.
 // 221 cars per hour
 
-pub fn production_rate_per_hour(speed: u8) -> f64 {    
+pub fn production_rate_per_hour(speed: u8) -> f64 {
     match speed {
       1..=4  => (speed as u16 * 221) as f64       ,
       5..=8  => (speed as u16 * 221) as f64 * 0.9 ,
@@ -17,5 +17,5 @@ pub fn production_rate_per_hour(speed: u8) -> f64 {
 }
 
 pub fn working_items_per_minute(speed: u8) -> u32 {
-    unimplemented!("calculate the amount of working items at speed: {}", speed)
+    production_rate_per_hour(speed) as u32 / 60
 }
