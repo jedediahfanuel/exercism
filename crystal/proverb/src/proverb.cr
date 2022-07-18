@@ -6,9 +6,7 @@ class Proverb
       res << "For want of a #{term[i-1]} the #{term[i]} was lost."
     end
     
-    res << "And all for the want of a #{term[0]}." if term.any?
-    
-    res
+    term.any? ? res << "And all for the want of a #{term[0]}." : res
   end
   
   def self.recite_two(wants)
