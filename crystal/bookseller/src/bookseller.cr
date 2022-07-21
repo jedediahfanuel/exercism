@@ -7,12 +7,7 @@ class Bookseller
       key, value = ary[0][0].to_s, ary[1].to_i
       hash[key] = hash.has_key?(key) ? hash[key] + value : value
     end
-    s = ""
-    target.each do |c|
-      s += "(#{c} : #{hash[c]? ? hash[c] : 0})"
-      s += " - " if c != target.last
-    end
-    s
+    target.map { |c| "(#{c} : #{hash[c]? ? hash[c] : 0})" }.join(" - ")
   end
 end
 
