@@ -3,15 +3,20 @@ module SemiStructuredLog
     Info
     Warning
     Error
+    Debug
+  end
+  
+  def self.log_v(level : LogLevel, message) : String
+    case level
+    when .info?    then info(message)
+    when .warning? then warn(message)
+    when .error?   then error(message)
+    else           "[#{level.to_s.upcase}]: #{message}"
+    end
   end
   
   def self.log(level : LogLevel, message) : String
-    case level
-    when LogLevel::Info    then info(message)
-    when LogLevel::Warning then warn(message)
-    when LogLevel::Error   then error(message)
-    else                   "[#{level}]: #{message}"
-    end
+    LogLevel.valid?(level) ? "[#{level.to_s.upcase}]: #{message}" : "[UNKNOWN]: #{message}"
   end
   
   def self.info(message) : String

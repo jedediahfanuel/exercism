@@ -22,7 +22,11 @@ describe "SemiStructuredLog" do
     SemiStructuredLog.log(SemiStructuredLog::LogLevel::Warning, "Timezone not set").should eq("[WARNING]: Timezone not set")
   end
 
-  it "log emits warning" do
-  end
+  it "log emits error" do
     SemiStructuredLog.log(SemiStructuredLog::LogLevel::Error, "Disk full").should eq("[ERROR]: Disk full")
+  end
+  
+  it "log emits Debug -- add variant" do
+    SemiStructuredLog.log(SemiStructuredLog::LogLevel::Debug, "reached line 123").should eq("[DEBUG]: reached line 123")
+  end
 end
