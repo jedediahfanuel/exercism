@@ -4,4 +4,8 @@ class Bin
       c == 1 ? 2 ** i : 0
     }.sum
   end
+  
+  def self.binary_two(arr)
+    arr.join.to_i(2)
+  end
 end
