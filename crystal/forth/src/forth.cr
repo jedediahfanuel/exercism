@@ -186,3 +186,44 @@ class Forth
   private delegate next_token, to: @lexer
 end
 
+module Forth
+  extend self
+  def evaluate(s)
+    stack = [] of Int32
+    user_words = {} of String => String
+    s.split(';').each { |chunk| eval_chunk(chunk, stack, user_words) }
+    stack
+  end
+  private def eval_chunk(chunk, stack, user_words)
+    if chunk.starts_with?(':')
+      eval_definition(chunk, user_words)
+    else
+      eval_code(chunk, stack, user_words)
+    end
+  end
+  private def eval_code(code, stack, user_words)
+    code.downcase.split.each do |element|
+      if user_words.has_key? element
+        eval_code(user_words[element], stack, user_words)
+      else
+        case element
+        when "+"   ; stack.push(stack.pop + stack.pop)
+        when "-"   ; stack.push(-stack.pop + stack.pop)
+        when "*"   ; stack.push(stack.pop * stack.pop)
+        when "/"   ; stack.push(((1 / stack.pop) * stack.pop).to_i)
+        when "dup" ; stack.push(stack.last)
+        when "drop"; stack.pop
+        when "swap"; stack.push(stack.pop, stack.pop)
+        when "over"; stack.push(stack[-2])
+        else         stack.push element.to_i
+        end
+      end
+    end
+  end
+  private def eval_definition(definition, user_words)
+    definition.scan(/: (\S+)\s+(.+)/) do |m|
+      raise ArgumentError.new if m[1].to_i?
+      user_words[m[1].downcase] = m[2]
+    end
+  end
+end
