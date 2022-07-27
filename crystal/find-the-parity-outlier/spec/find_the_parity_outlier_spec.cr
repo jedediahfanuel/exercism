@@ -20,6 +20,12 @@ tests=[
 ]
 expected=[1, 2, 3, 1, 17, 2, 44, 1000, -3, -35, -100000000000000007, -20, -44, 1, 0]
 
+private def test(data, expected)
+  it "#{data} should equal >> #{expected}" do
+    ParityOutlier.find_outlier(data).should eq expected
+  end
+end
+
 describe "Basic tests" do
   tests.size.times do |i|
     test(tests[i], expected[i])
