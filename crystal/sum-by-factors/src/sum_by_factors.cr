@@ -1,5 +1,5 @@
 def sum_of_divided(lst : Array(Int64))
-  primes = lst.map { |i| factors i }.flatten.uniq.sort
+  primes = lst.map { |i| factors i.abs }.flatten.uniq.sort
   primes.map { |i| [ i, lst.sum { |n| n.divisible_by?(i) ? n : 0 } ] }
 end
 
