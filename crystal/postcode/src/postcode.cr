@@ -12,4 +12,10 @@ class Postcode
       str << r.rand(l).chr
     end
   end
+  
+  def self.generate_postcode_two()
+    s = ('A'..'Z').to_a.sample
+    digits = (1..9).to_a.sample
+    "#{s}#{s}#{digits} #{digits}#{s}#{s}"
+  end
 end
