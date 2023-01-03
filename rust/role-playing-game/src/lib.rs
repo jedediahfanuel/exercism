@@ -10,15 +10,9 @@ impl Player {
             return None;
         }
 
-        let mut mana = None;
-
-        if self.level > 9 {
-            mana = Some(100);
-        }
-
         Some(Player {
             health: 100,
-            mana,
+            mana: (self.level > 9).then(|| 100),
             level: self.level,
         })
     }
