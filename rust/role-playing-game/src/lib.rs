@@ -21,13 +21,7 @@ impl Player {
         let mut damage: u32 = 0;
 
         match self.mana {
-            None => {
-                if mana_cost > self.health {
-                    self.health = 0;
-                } else {
-                    self.health -= mana_cost;
-                }
-            }
+            None => self.health = self.health.saturating_sub(mana_cost),
             Some(n) => {
                 if n >= mana_cost {
                     damage = mana_cost * 2;
