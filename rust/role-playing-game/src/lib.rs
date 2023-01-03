@@ -28,7 +28,11 @@ impl Player {
 
         match self.mana {
             None => {
-                self.health -= mana_cost;
+                if mana_cost > self.health {
+                    self.health = 0;
+                } else {
+                    self.health -= mana_cost;
+                }
             }
             Some(n) => {
                 if n >= mana_cost {
