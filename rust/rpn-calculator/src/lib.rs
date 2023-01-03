@@ -21,8 +21,7 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
                     return None;
                 }
 
-                let n2 = stack.pop().unwrap();
-                let n1 = stack.pop().unwrap();
+                let (n2, n1) = (stack.pop().unwrap(), stack.pop().unwrap());
 
                 match input {
                     CalculatorInput::Add => stack.push(n1 + n2),
@@ -35,9 +34,9 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
         }
     }
 
-    if stack.len() != 1 {
-        return None;
+    if stack.len() == 1 {
+        return stack.pop();
     }
 
-    stack.pop()
+    None
 }
