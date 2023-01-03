@@ -29,7 +29,7 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
                     CalculatorInput::Subtract => stack.push(n1 - n2),
                     CalculatorInput::Multiply => stack.push(n1 * n2),
                     CalculatorInput::Divide => stack.push(n1 / n2),
-                    _ => return None,
+                    _ => (),
                 }
             }
         }
