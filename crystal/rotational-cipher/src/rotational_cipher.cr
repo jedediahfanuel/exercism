@@ -1,5 +1,6 @@
 module RotationalCipher
+  @@ALPHA = "abcdefghijklmnopqrstuvwxyz"
   def self.rotate(plaintext : String, key : Number) : String
-    # Write your code for the 'Rotational Cipher' exercise in this file.
+    plaintext.tr @@ALPHA + @@ALPHA.upcase, @@ALPHA.chars.rotate(key).join + @@ALPHA.upcase.chars.rotate(key).join
   end
 end
