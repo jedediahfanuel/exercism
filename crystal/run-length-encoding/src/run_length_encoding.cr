@@ -15,7 +15,7 @@ class RunLengthEncoding
     return result += append_string(last_count, last_char)
   end
 
-  def self.decode(s : String) : String
+  def self.decode_2(s : String) : String
     counting, n, result = false, "", ""
 
     s.each_char do |c|
@@ -35,28 +35,28 @@ class RunLengthEncoding
     result
   end
 
+  def self.decode(s : String) : String
+    n, result = "", ""
+
+    i = 0
+    until i == s.size
+      if s[i].ascii_number?
+        until s[i+1].ascii_letter?
+          n += s[i]
+          i += 1
+        end
+        result += s[i].to_s * n.to_i
+      elsif
+        result += s[i]
+
+      i += 1
+    end
+
+    result
+  end
+
   private def self.append_string(count : Int32, char : Char) : String
     return "" if count == 0
     count == 1 ? "#{char}" : "#{count}#{char}"
-  end
-
-  ##################################################################
-
-  def encode_2(plaintext)
-    plaintext.gsub(/(.)\1+/) { |m| m.size.to_s + m.squeeze }
-  end
-
-  def decode_2(ciphertext)
-    ciphertext.gsub(/(\d+)(.)/) { $2 * $1.to_i }
-  end
-
-  ##################################################################
-
-  def encode_3(s : String)
-    s.chars.chunks { |c| c }.map { |c, v| "#{v.size > 1 ? v.size : ""}#{c}" }.join
-  end
-
-  def decode_3(s : String)
-    s.gsub(/\d+./) { |m| m[-1].to_s * m[0..-2].to_i }
   end
 end
