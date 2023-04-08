@@ -1,5 +1,5 @@
 module ResistorColorTrio
-  @@colors : Hash(String, Char) = { "black"  => '0', "brown"  => '1', "red"    => '2', "orange" => '3', "yellow" => '4', "green"  => '5', "blue"   => '6', "violet" => '7', "grey"   => '8', "white"  => '9' }
+  @@colors : Hash(String, Char) = { "black"  => '0', "brown" => '1', "red" => '2', "orange" => '3', "yellow" => '4', "green" => '5', "blue" => '6', "violet" => '7', "grey" => '8', "white" => '9' }
   @@metric : Hash(Int32, String) = { 0 => "", 1 => "kilo", 2 => "mega", 3 => "giga", 4 => "tera", 5 => "peta", 6 => "exa", 7 => "zetta", 8 => "yotta", 9 => "ronna", 10 => "quetta" }
 
   def self.label(c : Array(String)) : String
