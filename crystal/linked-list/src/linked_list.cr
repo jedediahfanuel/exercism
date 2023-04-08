@@ -1,3 +1,1 @@
-class LinkedList
-  # Write your code for the 'Linked List' exercise in this file.
-end
+class LinkedList < Array(Int32) def count ; size ; end ; def delete(v : Int) delete_at(index!(v)) if index(v) end end
