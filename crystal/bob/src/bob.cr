@@ -14,7 +14,7 @@ class Bob
     end
   end
 
-  private def self.question?(your_words : String) : Bool your_words.ends_with?("?") end
+  private def self.question?(your_words : String) : Bool your_words.rstrip.ends_with?("?") end
 
   private def self.scream?(your_words : String) : Bool
     alphabet = your_words.scan(/[a-zA-Z']+/)
