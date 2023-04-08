@@ -4,19 +4,13 @@ module ResistorColorTrio
 
   def self.label(c : Array(String)) : String
     return "0 ohms" if c[0] == "black" && c[1] == "black"
-    self.first(c[0], c[1]) + "" + self.second(c[1]) + "" + self.third(c[1], c[2])
-  end
 
-  private def self.first(f : String, s : String)
-    f == "black" && s != "black" ? "" : @@colors[f]
-  end
+    first = c[0] == "black" && c[1] != "black" ? "" : @@colors[c[0]]
+    second = @@colors[c[1]] != '0' ? @@colors[c[1]] : ""
 
-  private def self.second(s : String)
-    @@colors[s] != '0' ? @@colors[s] : ""
-  end
-
-  private def self.third(s : String, t : String)
-    t = @@colors[t].to_i + (s == "black" ? 1 : 0)
-    "0" * (t % 3) + " " + @@metric[t // 3] + "ohms"
+    t = @@colors[c[2]].to_i + (c[1] == "black" ? 1 : 0)
+    third = "0" * (t % 3) + " " + @@metric[t // 3] + "ohms"
+ 
+    first + "" + second + "" + third
   end
 end
