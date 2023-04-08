@@ -1,1 +1,1 @@
-class LinkedList < Array(Int32) def count ; size ; end ; def delete(v : Int) delete_at(index!(v)) if index(v) end end
+class LinkedList < Array(Int32) def count ; size ; end ; def delete(v : Int) if a = index(v) ; delete_at(a) end end end
