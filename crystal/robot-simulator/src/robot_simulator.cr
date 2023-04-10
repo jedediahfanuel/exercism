@@ -1,5 +1,5 @@
 class RobotSimulator
-  property x : Int32 ; property y : Int32 ; property direction : Symbol
+  property x : Int32 ; property y : Int32 ; getter direction : Symbol
   getter f = [:north, :east, :south, :west]
   def initialize(c : Tuple(Int32, Int32), @direction : Symbol)
     @x = c.first ; @y = c.last
@@ -10,18 +10,16 @@ class RobotSimulator
   end
 
   def advance
-    case direction
-    when :north then @y += 1
-    when :south then @y -= 1
-    when :east  then @x += 1
-    when :west  then @x -= 1
-    else raise ArgumentError.new ; end
+    @y += 1 if direction == :north
+    @y -= 1 if direction == :south
+    @x += 1 if direction == :east
+    @x -= 1 if direction == :west
   end
 
   def turn(t : Char)
-    case t
-    when 'R' then @direction = f[f.index(direction) == f.index(f.last) ? 0 : f.index!(direction) + 1]
-    when 'L' then @direction = f[f.index!(direction) - 1]
-    else raise ArgumentError.new ; end
+    if d = f.index direction
+      @direction = f[d == f.index(f.last) ? 0 : d + 1] if t == 'R'
+      @direction = f[d - 1] if t == 'L'
+    end
   end
 end
