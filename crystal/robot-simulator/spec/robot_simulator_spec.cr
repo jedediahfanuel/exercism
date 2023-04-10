@@ -10,7 +10,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :north
   end
 
-  pending "at negative position facing south" do
+  it "at negative position facing south" do
     robot = RobotSimulator.new({-1, -1}, :south)
 
     robot.x.should eq -1
@@ -18,7 +18,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :south
   end
 
-  pending "changes north to east" do
+  it "changes north to east" do
     robot = RobotSimulator.new({0, 0}, :north)
     robot.move("R")
 
@@ -27,7 +27,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :east
   end
 
-  pending "changes east to south" do
+  it "changes east to south" do
     robot = RobotSimulator.new({0, 0}, :east)
     robot.move("R")
 
@@ -36,7 +36,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :south
   end
 
-  pending "changes south to west" do
+  it "changes south to west" do
     robot = RobotSimulator.new({0, 0}, :south)
     robot.move("R")
 
@@ -45,7 +45,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :west
   end
 
-  pending "changes west to north" do
+  it "changes west to north" do
     robot = RobotSimulator.new({0, 0}, :west)
     robot.move("R")
 
@@ -54,7 +54,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :north
   end
 
-  pending "changes north to west" do
+  it "changes north to west" do
     robot = RobotSimulator.new({0, 0}, :north)
     robot.move("L")
 
@@ -63,7 +63,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :west
   end
 
-  pending "changes west to south" do
+  it "changes west to south" do
     robot = RobotSimulator.new({0, 0}, :west)
     robot.move("L")
 
@@ -72,7 +72,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :south
   end
 
-  pending "changes south to east" do
+  it "changes south to east" do
     robot = RobotSimulator.new({0, 0}, :south)
     robot.move("L")
 
@@ -81,7 +81,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :east
   end
 
-  pending "changes east to north" do
+  it "changes east to north" do
     robot = RobotSimulator.new({0, 0}, :east)
     robot.move("L")
 
@@ -90,7 +90,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :north
   end
 
-  pending "facing north increments Y" do
+  it "facing north increments Y" do
     robot = RobotSimulator.new({0, 0}, :north)
     robot.move("A")
 
@@ -99,7 +99,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :north
   end
 
-  pending "facing south decrements Y" do
+  it "facing south decrements Y" do
     robot = RobotSimulator.new({0, 0}, :south)
     robot.move("A")
 
@@ -108,7 +108,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :south
   end
 
-  pending "facing east increments X" do
+  it "facing east increments X" do
     robot = RobotSimulator.new({0, 0}, :east)
     robot.move("A")
 
@@ -117,7 +117,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :east
   end
 
-  pending "facing west decrements X" do
+  it "facing west decrements X" do
     robot = RobotSimulator.new({0, 0}, :west)
     robot.move("A")
 
@@ -126,7 +126,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :west
   end
 
-  pending "moving east and north from README" do
+  it "moving east and north from README" do
     robot = RobotSimulator.new({7, 3}, :north)
     robot.move("RAALAL")
 
@@ -135,7 +135,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :west
   end
 
-  pending "moving west and north" do
+  it "moving west and north" do
     robot = RobotSimulator.new({0, 0}, :north)
     robot.move("LAAARALA")
 
@@ -144,7 +144,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :west
   end
 
-  pending "moving west and south" do
+  it "moving west and south" do
     robot = RobotSimulator.new({2, -7}, :east)
     robot.move("RRAAAAALA")
 
@@ -153,7 +153,7 @@ describe "RobotSimulator" do
     robot.direction.should eq :south
   end
 
-  pending "moving east and north" do
+  it "moving east and north" do
     robot = RobotSimulator.new({8, 4}, :south)
     robot.move("LAAARRRALLLL")
 
