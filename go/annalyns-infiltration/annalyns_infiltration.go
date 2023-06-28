@@ -22,10 +22,8 @@ func CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPres
 		return false
 	}
 
-	if knightIsAwake {
-		if !petDogIsPresent {
-			return false
-		}
+	if knightIsAwake && !petDogIsPresent {
+		return false
 	}
 
 	if !prisonerIsAwake && !petDogIsPresent {
