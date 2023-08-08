@@ -1,13 +1,13 @@
 class Navigation
-  # TODO: define the 'NEPTUNE_DISTANCE' constant
-  # TODO: define the 'MARS_DISTANCE' constant
-  # TODO: define the 'ATMOSPHERE_DISTANCE' constant
+  NEPTUNE_DISTANCE = 4_400_000_000_i64
+  MARS_DISTANCE = 227_940_000_i32
+  ATMOSPHERE_DISTANCE = 10_000_i16
 
   def correct_area_analysis(measurement)
-    raise "Please implement the Navigation#correct_area_analysis method"
+    measurement.to_u32
   end
 
   def calculate_velocity(distance, time)
-    raise "Please implement the Navigation#calculate_velocity method"
+    (distance / time).to_f32
   end
 end
