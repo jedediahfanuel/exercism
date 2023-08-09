@@ -1,17 +1,17 @@
 class HighSchoolSweetheart
   def self.clean_up_name(name)
-    raise "Please implement the HighSchoolSweetheart.clean_up_name method"
+    name.gsub('-', ' ').strip
   end
 
   def self.first_letter(name)
-    raise "Please implement the HighSchoolSweetheart.first_letter method"
+    self.clean_up_name(name)[0].to_s
   end
 
   def self.initial(name)
-    raise "Please implement the HighSchoolSweetheart.initial method"
+    self.first_letter(name).upcase.insert(-1, '.')
   end
 
   def self.pair(name1, name2)
-    raise "Please implement the HighSchoolSweetheart.pair method"
+    "❤ #{initial(name1)}  +  #{initial(name2)} ❤"
   end
 end
