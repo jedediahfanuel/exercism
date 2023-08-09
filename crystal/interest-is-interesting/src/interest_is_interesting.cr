@@ -11,7 +11,7 @@ class SavingsAccount
   end
 
   def self.annual_balance_update(balance)
-    balance.zero? ? 0 : balance + interest(balance)
+    balance + interest(balance)
   end
 
   def self.years_before_desired_balance(current_balance, target_balance)
