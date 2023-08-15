@@ -12,6 +12,7 @@ class Temperature
   end
 
   def number_missing_sensors(number_of_sensors)
-    4 - number_of_sensors % 4
+    stock = number_of_sensors % 4 == 0 ? 4 : number_of_sensors % 4
+    4 - stock
   end
 end
