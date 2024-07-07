@@ -10,6 +10,6 @@ class TaskHandler
 
   def execute(priority : Int32)
     return "Could not complete " + @tasks.first unless @task_condition_logic.call(priority)
-    "Completed " + @tasks.shift(priority).first
+    "Completed " + @tasks.shift
   end
 end
