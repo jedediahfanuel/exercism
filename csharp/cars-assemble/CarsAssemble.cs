@@ -2,18 +2,18 @@ using System;
 
 static class AssemblyLine
 {
-    public static double SuccessRate(int speed)
+    public static double SuccessRate(int speed) => speed switch
     {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.SuccessRate() method");
-    }
+        0               => 0.00,
+        (> 0) and (< 5) => 1.00,
+        (> 4) and (< 9) => 0.90,
+        9               => 0.80,
+        _               => 0.77,
+    };
     
-    public static double ProductionRatePerHour(int speed)
-    {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.ProductionRatePerHour() method");
-    }
+    public static double ProductionRatePerHour(int speed) =>
+        SuccessRate(speed) * speed * 221;
 
-    public static int WorkingItemsPerMinute(int speed)
-    {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.WorkingItemsPerMinute() method");
-    }
+    public static int WorkingItemsPerMinute(int speed) =>
+        (int) ProductionRatePerHour(speed) / 60;
 }
