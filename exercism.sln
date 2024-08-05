@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{C8761EB4-C87F-43CA-B4C7-A9C62ED46AE8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld", "csharp\hello-world\HelloWorld.csproj", "{67465D9F-DC5B-4916-9237-51728DD6C30D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuciansLusciousLasagna", "csharp\lucians-luscious-lasagna\LuciansLusciousLasagna.csproj", "{CEB1317E-28AB-4E1B-8FDA-D0D36648462F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67465D9F-DC5B-4916-9237-51728DD6C30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67465D9F-DC5B-4916-9237-51728DD6C30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67465D9F-DC5B-4916-9237-51728DD6C30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67465D9F-DC5B-4916-9237-51728DD6C30D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB1317E-28AB-4E1B-8FDA-D0D36648462F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB1317E-28AB-4E1B-8FDA-D0D36648462F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB1317E-28AB-4E1B-8FDA-D0D36648462F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB1317E-28AB-4E1B-8FDA-D0D36648462F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67465D9F-DC5B-4916-9237-51728DD6C30D} = {C8761EB4-C87F-43CA-B4C7-A9C62ED46AE8}
+		{CEB1317E-28AB-4E1B-8FDA-D0D36648462F} = {C8761EB4-C87F-43CA-B4C7-A9C62ED46AE8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D936BA3-3DD7-4CDE-84A9-5D312F7B9859}
+	EndGlobalSection
+EndGlobal
