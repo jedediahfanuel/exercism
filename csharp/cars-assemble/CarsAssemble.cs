@@ -4,11 +4,11 @@ static class AssemblyLine
 {
     public static double SuccessRate(int speed) => speed switch
     {
-          0 => 0.00,
-        < 5 => 1.00,
-        < 9 => 0.90,
-          9 => 0.80,
-          _ => 0.77,
+          0 => 0   ,
+        < 5 => 1   ,
+        < 9 =>  .9 ,
+          9 =>  .8 ,
+          _ =>  .77,
     };
     
     public static double ProductionRatePerHour(int speed) =>
