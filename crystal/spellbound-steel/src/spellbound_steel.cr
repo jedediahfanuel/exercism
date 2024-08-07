@@ -1,10 +1,10 @@
 module SpellboundSteel
   def self.find_card?(cards, card)
-    raise "Please implement the SpellboundSteel.find_card? method"
+    cards.index(card)
   end
 
   def self.capitalize_names(characters)
-    raise "Please implement the SpellboundSteel.capitalize_names method"
+    characters.map(&.split.map(&.capitalize).join(" "))
   end
 
   def self.calculate_power_level(cards)
