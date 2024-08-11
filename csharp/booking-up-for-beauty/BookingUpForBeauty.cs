@@ -55,10 +55,7 @@ static class Appointment
         return new DateTime(yy,mo,dd,hh,mm,ss);
     }
 
-    public static bool HasPassed(DateTime appointmentDate)
-    {
-        throw new NotImplementedException("Please implement the (static) Appointment.HasPassed() method");
-    }
+    public static bool HasPassed(DateTime appointmentDate) => appointmentDate.CompareTo(DateTime.Now) < 0; 
 
     public static bool IsAfternoonAppointment(DateTime appointmentDate)
     {
