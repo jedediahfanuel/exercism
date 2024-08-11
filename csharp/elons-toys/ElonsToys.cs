@@ -1,7 +1,4 @@
-using System;
-
-class RemoteControlCar
-{
+class RemoteControlCar {
     private int _distance = 0;
     private int _battery = 100;
     
