@@ -9,9 +9,12 @@ class BirdCount {
 
     public int Today() => birdsPerDay.Last();
 
-    public void IncrementTodaysCount() => birdsPerDay[6]++;
+    // public void IncrementTodaysCount() => birdsPerDay[6]++;
+    // ^ berarti index from end
+    public void IncrementTodaysCount() => birdsPerDay[^1]++;
 
-    public bool HasDayWithoutBirds() => birdsPerDay.Any(c => c == 0);
+    // public bool HasDayWithoutBirds() => birdsPerDay.Any(c => c == 0);
+    public bool HasDayWithoutBirds() => birdsPerDay.Contains(0);
 
     public int CountForFirstDays(int numberOfDays) => birdsPerDay[..numberOfDays].Sum();
 
