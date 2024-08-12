@@ -5,26 +5,22 @@ public static class Languages {
 
     public static List<string> GetExistingLanguages() => new List<string>{"C#", "Clojure", "Elm"};
 
-    public static List<string> AddLanguage(List<string> languages, string language) {
-        languages.Add(language);
-        return languages; }
+    public static List<string> AddLanguage(List<string> lang, string l) => lang.Append(l).ToList();
 
-    public static int CountLanguages(List<string> languages) => languages.Count;
+    public static int CountLanguages(List<string> lang) => lang.Count;
 
-    public static bool HasLanguage(List<string> languages, string language) => languages.Contains(language);
+    public static bool HasLanguage(List<string> lang, string l) => lang.Contains(l);
 
-    public static List<string> ReverseList(List<string> languages) {
-        languages.Reverse();
-        return languages; }
+    public static List<string> ReverseList(List<string> lang) => lang.Reverse<string>().ToList();
 
-    public static bool IsExciting(List<string> languages) {
-        if (!languages.Any()) return false;
-        if (languages.First() == "C#") return true;
-        if (languages.Count == 2 || languages.Count == 3 && languages.Contains("C#"))
+    public static bool IsExciting(List<string> lang) {
+        if (!lang.Any()) return false;
+        if (lang.First() == "C#") return true;
+        if (lang.Count == 2 || lang.Count == 3 && lang.Contains("C#"))
             return true; return false; }
 
-    public static List<string> RemoveLanguage(List<string> languages, string language) {
-        languages.Remove(language);
-        return languages; }
+    public static List<string> RemoveLanguage(List<string> lang, string l) {
+        lang.Remove(l);
+        return lang; }
 
-    public static bool IsUnique(List<string> languages) => languages.Count == languages.Distinct().ToList().Count; }
+    public static bool IsUnique(List<string> lang) => lang.Count == lang.Distinct().ToList().Count; }
