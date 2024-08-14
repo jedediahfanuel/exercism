@@ -15,10 +15,10 @@ public static class PlayAnalyzer                                                
 
     public static string AnalyzeOffField(object report)                                                                {
         switch (report)                                                                                                {
-            case int num      : return $"There are {num} supporters at the match."                   ;
-            case string str   : return str                                                           ;
-            case Injury inj   : return $"Oh no! {inj.GetDescription()} Medics are on the field."     ;
-            case Incident inc : return inc.GetDescription()                                          ;
-            case Manager man  : return man.Club is null ? $"{man.Name}" : $"{man.Name} ({man.Club})" ;
-            default           : throw new ArgumentException()                                        ;
+            case int      num : return $"There are {num} supporters at the match."                      ;
+            case string   str : return str                                                              ;
+            case Injury   inj : return $"Oh no! {inj.GetDescription()} Medics are on the field."        ;
+            case Incident inc : return inc.GetDescription()                                             ;
+            case Manager  man : return man.Club is null ? $"{man.Name}" : $"{man.Name} ({man.Club})"    ;
+            default           : throw new ArgumentException()                                           ;
                                                                                                                        } } }
