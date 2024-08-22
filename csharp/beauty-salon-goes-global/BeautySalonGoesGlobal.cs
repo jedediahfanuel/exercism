@@ -8,15 +8,20 @@ public static class Appointment
 {
     public static DateTime ShowLocalTime(DateTime dtUtc) => dtUtc.ToLocalTime();
 
-    public static DateTime Schedule(string appDateDescript, Location location) => location switch {
-    	Location.NewYork => TimeZoneInfo.ConvertTimeToUtc(DateTime.Parse(appDateDescript), TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")), 
-        Location.London => TimeZoneInfo.ConvertTimeToUtc(DateTime.Parse(appDateDescript), TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time")), 
-		Location.Paris => TimeZoneInfo.ConvertTimeToUtc(DateTime.Parse(appDateDescript), TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time")) };		
+	public static DateTime Schedule(string appointmentDateDescription, Location location) =>
+        TimeZoneInfo.ConvertTimeToUtc(DateTime.Parse(appointmentDateDescription), location.ToTimeZone());
+
+	private static TimeZoneInfo ToTimeZone(this Location location) => location switch {
+        Location.NewYork => TimeZoneInfo.FindSystemTimeZoneById("America/New_York"),
+        Location.London => TimeZoneInfo.FindSystemTimeZoneById("Europe/London"),
+        Location.Paris => TimeZoneInfo.FindSystemTimeZoneById("Europe/Paris"),
+        _ => throw new ArgumentOutOfRangeException(nameof(location), location, null) };
 
     public static DateTime GetAlertTime(DateTime appointment, AlertLevel alertLevel) => alertLevel switch {
-		AlertLevel.Early => appointment.Subtract(TimeSpan.Parse("1.00:00:00")),
-		AlertLevel.Standard => appointment.Subtract(TimeSpan.Parse("01:45:00")),
-		AlertLevel.Late => appointment.Subtract(TimeSpan.Parse("00:30:00")) };
+        AlertLevel.Early => appointment.AddDays(-1),
+        AlertLevel.Standard => appointment.AddHours(-1).AddMinutes(-45),
+        AlertLevel.Late => appointment.AddMinutes(-30),
+        _ => throw new ArgumentOutOfRangeException(nameof(alertLevel), alertLevel, null) };
 
     public static bool HasDaylightSavingChanged(DateTime dt, Location location) => location switch {
     	Location.NewYork => TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time").IsDaylightSavingTime(dt) ^ TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time").IsDaylightSavingTime(dt.Subtract(TimeSpan.Parse("7.00:00:00"))), 
