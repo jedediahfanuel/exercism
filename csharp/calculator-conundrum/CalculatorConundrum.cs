@@ -6,7 +6,7 @@ public static class SimpleCalculator                                            
 
         if (y == 0) return "Division by zero is not allowed."                                                   ;
 
-        return operation switch                                                                                        {
+        return t switch                                                                                        {
              "+" => $"{x} {t} {y} = {x + y}",
              "*" => $"{x} {t} {y} = {x * y}",
              "/" => $"{x} {t} {y} = {x / y}",
