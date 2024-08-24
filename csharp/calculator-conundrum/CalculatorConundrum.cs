@@ -12,5 +12,4 @@ public static class SimpleCalculator                                            
              "/" => $"{operand1} {operation} {operand2} = {operand1 / operand2}",
               "" => throw new ArgumentException(),
             null => throw new ArgumentNullException(),
-               _ => throw new ArgumentOutOfRangeException(),
-                                                                                                                       }; } }
+               _ => throw new ArgumentOutOfRangeException(),                                                           }; } }
