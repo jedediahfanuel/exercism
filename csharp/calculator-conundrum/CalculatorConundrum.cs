@@ -2,14 +2,14 @@ using System                                                                    
 
 public static class SimpleCalculator                                                                                   {
 
-    public static string Calculate(int operand1, int operand2, string operation)                                       {
+    public static string Calculate(int x, int y, string t)                                                             {
 
         if (operand2 == 0) return "Division by zero is not allowed."                                                   ;
 
         return operation switch                                                                                        {
-             "+" => $"{operand1} {operation} {operand2} = {operand1 + operand2}",
-             "*" => $"{operand1} {operation} {operand2} = {operand1 * operand2}",
-             "/" => $"{operand1} {operation} {operand2} = {operand1 / operand2}",
+             "+" => $"{x} {t} {y} = {x + y}",
+             "*" => $"{x} {t} {y} = {x * y}",
+             "/" => $"{x} {t} {y} = {x / y}",
               "" => throw new ArgumentException(),
             null => throw new ArgumentNullException(),
                _ => throw new ArgumentOutOfRangeException(),                                                           }; } }
