@@ -1,12 +1,21 @@
 using System;
 
-class WeighingMachine
-{
-    // TODO: define the 'Precision' property
+class WeighingMachine {
+    private double weight = 0.0;
+    public  double Weight { 
+        get { return weight; }
+        set { 
+            if (value < 0) throw new ArgumentOutOfRangeException();
+            weight = value;
+        } 
+    }
 
-    // TODO: define the 'Weight' property
+    public WeighingMachine(int precision) => Precision = precision;
+    public int    Precision      { get; set; }
+    public double TareAdjustment { get; set; } = 5d;
 
-    // TODO: define the 'DisplayWeight' property
-
-    // TODO: define the 'TareAdjustment' property
-}
+    public string DisplayWeight => $"{
+        Math.Round(Weight - TareAdjustment, Precision)           /*rounding*/
+        .ToString("0." + 0.ToString().PadLeft(Precision, '0'))   /*print precision */
+    } kg";
+}  
