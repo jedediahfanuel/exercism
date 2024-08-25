@@ -1,19 +1,10 @@
-using System;
+public static class CentralBank                                                                                                  {
+    public static string DisplayDenomination(long @b, long m)                                                                    {
+        try   { return checked($"{(@b * m)}")   ; }
+        catch { return "*** Too Big ***"        ; }                                                                              }
 
-public static class CentralBank
-{
-    public static string DisplayDenomination(long @base, long multiplier)
-    {
-        throw new NotImplementedException($"Please implement the (static) CentralBank.DisplayDenomination() method");
-    }
+    public static string DisplayGDP(float @b, float m) => DisplayDenomination((long) @b, (long) m)                               ;
 
-    public static string DisplayGDP(float @base, float multiplier)
-    {
-        throw new NotImplementedException($"Please implement the (static) CentralBank.DisplayGDP() method");
-    }
-
-    public static string DisplayChiefEconomistSalary(decimal salaryBase, decimal multiplier)
-    {
-        throw new NotImplementedException($"Please implement the (static) CentralBank.DisplayChiefEconomistSalary() method");
-    }
-}
+    public static string DisplayChiefEconomistSalary(decimal s, decimal m)                                                       {
+        try   { return checked($"{(s * m)}")    ; }
+        catch { return "*** Much Too Big ***"   ; }                                                                              } }
