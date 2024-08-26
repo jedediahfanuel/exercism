@@ -1,28 +1,21 @@
 using System;
+enum AccountType { Guest, User, Moderator }
 
-// TODO: define the 'AccountType' enum
+[Flags]
+enum Permission : byte                                                                                                                               { 
+    None   = 0b_00000000                                                                                                                             ,
+    Read   = 0b_00000001                                                                                                                             , 
+    Write  = 0b_00000010                                                                                                                             , 
+    Delete = 0b_00000100                                                                                                                             , 
+    All    = 0b_00000111                                                                                                                             , }
 
-// TODO: define the 'Permission' enum
+static class Permissions                                                                                                                             {
+    public static Permission Default(AccountType accountType) => accountType switch                                                                  {
+            AccountType.Guest => Permission.Read                                                                                                     ,
+             AccountType.User => Permission.Read | Permission.Write                                                                                  ,
+        AccountType.Moderator => Permission.Read | Permission.Write | Permission.Delete                                                              ,
+                            _ => Permission.None                                                                                                     , };
 
-static class Permissions
-{
-    public static Permission Default(AccountType accountType)
-    {
-        throw new NotImplementedException("Please implement the (static) Permissions.Default() method");
-    }
-
-    public static Permission Grant(Permission current, Permission grant)
-    {
-        throw new NotImplementedException("Please implement the (static) Permissions.Grant() method");
-    }
-
-    public static Permission Revoke(Permission current, Permission revoke)
-    {
-        throw new NotImplementedException("Please implement the (static) Permissions.Revoke() method");
-    }
-
-    public static bool Check(Permission current, Permission check)
-    {
-        throw new NotImplementedException("Please implement the (static) Permissions.Check() method");
-    }
-}
+    public static Permission Grant  (Permission current, Permission grant ) =>  current |   grant                                                    ;
+    public static Permission Revoke (Permission current, Permission revoke) =>  current & ~revoke                                                    ;
+    public static bool       Check  (Permission current, Permission check ) => (current |   check) == current                                        ; }
