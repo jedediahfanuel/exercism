@@ -7,7 +7,7 @@ enum Permission : byte                                                          
     Read   = 0b_00000001                                                                                                                             , 
     Write  = 0b_00000010                                                                                                                             , 
     Delete = 0b_00000100                                                                                                                             , 
-    All    = 0b_00000111                                                                                                                             , }
+    All    = 0b_00000111 /* READ | WRITE | DELETEI */                                                                                                , }
 
 static class Permissions                                                                                                                             {
     public static Permission Default(AccountType accountType) => accountType switch                                                                  {
