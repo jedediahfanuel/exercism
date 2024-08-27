@@ -1,26 +1,22 @@
 using System;
 
-public class Orm
-{
+public enum State { TransactionStarted, DataWritten, Invalid, Closed }
+
+public class Orm : IDisposable {
     private Database database;
 
-    public Orm(Database database)
-    {
-        this.database = database;
-    }
+    public Orm(Database database) { this.database = database; }
 
-    public void Begin()
-    {
-        throw new NotImplementedException($"Please implement the Orm.Begin() method");
-    }
+    public void Begin() {
+           try   { this.database.BeginTransaction(); }
+           catch { Dispose(); } }
 
-    public void Write(string data)
-    {
-        throw new NotImplementedException($"Please implement the Orm.Write() method");
-    }
+    public void Write(string data) {
+           try   { this.database.Write(data); }
+           catch { Dispose(); } }
 
-    public void Commit()
-    {
-        throw new NotImplementedException($"Please implement the Orm.Commit() method");
-    }
-}
+    public void Commit() {
+           try   { this.database.EndTransaction(); }
+           catch { Dispose(); } }
+
+    public void Dispose() { this.database.Dispose(); } }
