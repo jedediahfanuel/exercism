@@ -19,4 +19,4 @@ public class Orm : IDisposable {
            try   { this.database.EndTransaction(); }
            catch { Dispose(); } }
 
-    public void Dispose() { this.database.Dispose(); } }
+    public void Dispose() => this.database.Dispose(); }
