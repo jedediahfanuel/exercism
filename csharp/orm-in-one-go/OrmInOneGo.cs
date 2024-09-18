@@ -11,7 +11,7 @@ public class Orm                                                                
             database.Write(data);
             database.EndTransaction();                                                                                           } }
 
-    public bool WriteSafely(string data) {
+    public bool WriteSafely(string data)                                                                                         {
         try {
             Write(data);
             return true;                                                                                                         }
