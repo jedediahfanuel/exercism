@@ -1,26 +1,18 @@
 using System;
 
-public class Orm {
+public class Orm                                                                                                                 {
     private Database database;
 
     public Orm(Database database) => this.database = database;
 
-    public void Write(string data) {
-        using var db = this.database;
-        try {
+    public void Write(string data)                                                                                               {
+        using (database)                                                                                                         {
             database.BeginTransaction();
             database.Write(data);
-            database.EndTransaction();
-        }
-        catch (Exception ex) { throw ex;           }
-        finally              { database.Dispose(); }
-    }
+            database.EndTransaction();                                                                                           } }
 
     public bool WriteSafely(string data) {
         try {
             Write(data);
-            return true;
-        }
-        catch { return false; }
-    }
-}
+            return true;                                                                                                         }
+        catch { return false; }                                                                                                  } }
